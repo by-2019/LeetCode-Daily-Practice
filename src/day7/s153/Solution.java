@@ -14,18 +14,15 @@ class Solution {
             return nums[0];
         int start = 0;
         int end = nums.length - 1;
-        int min = nums[0];
-        while (start <= end) {
+        while (start < end) {
             int mid = (start + end) / 2;
-            if (nums[mid] < nums[start]) {
-                min = Math.min(nums[mid], min);
-                end = mid - 1;
+            if (nums[mid] < nums[end]) {
+                end = mid;
                 continue;
             }
-            min = Math.min(nums[start], min);
             start = mid + 1;
         }
-        return min;
+        return nums[start];
     }
 
     public static void main(String[] args) {
